@@ -41,8 +41,8 @@ Ensure the Spotify Track Metadata API is running locally at http://localhost:808
 #### The backend must have Basic Auth enabled with the following credentials:
 Username: admin
 Password: password
-#### The backend should expose the following endpoints:
 
+#### The backend should expose the following endpoints
 POST /track/metadata?isrc=<your_isrc>
 GET /track/metadata?isrc=<your_isrc>
 GET /track/cover?isrc=<your_isrc>
@@ -50,8 +50,8 @@ GET /track/cover?isrc=<your_isrc>
 ### 🧭 Navigation
 The application features two primary screens accessible via the top navigation menu:
 
-Create Track: Calls the POST /track/metadata?isrc=... endpoint.
-Search Track: Calls the GET /track/metadata?isrc=... endpoint and displays the track's cover art.
+**Create Track**: Calls the POST /track/metadata?isrc=... endpoint.
+**Search Track**: Calls the GET /track/metadata?isrc=... endpoint and displays the track's cover art.
 
 ### 👨‍💻 Author
 Made with ❤️ by Axel Fernandez
