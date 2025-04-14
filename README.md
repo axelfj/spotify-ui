@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎧 Spotify UI
 
-## Getting Started
+This is a simple **React + Next.js** frontend designed to interact with the [Spotify Track Metadata API](https://github.com/axelfj/spotify-api). It provides a user-friendly interface for creating and searching track metadata using ISRC codes, facilitating seamless testing of backend integrations.
 
-First, run the development server:
+---
 
-```bash
+## 🚀 Features
+
+* **Create Track Metadata:** Input an ISRC to create new track metadata.
+* **Search Track Metadata:** Retrieve and display metadata for an existing ISRC.
+* **View Album Cover Art:** Display the album cover associated with the track.
+* **Basic Authentication:** Securely communicates with the backend using Basic Auth.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Next.js:** React framework for server-side rendering and static site generation.
+* **React:** JavaScript library for building user interfaces.
+* **Zustand:** Simple and efficient state management.
+* **Axios:** Promise-based HTTP client for making API requests.
+* **Material UI:** React UI framework for consistent and responsive design.
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone the Repository
+git clone [https://github.com/your-username/spotify-ui.git](https://github.com/your-username/spotify-ui.git)
+cd spotify-ui
+
+### 2. Install Dependencies
+npm install
+
+### 3. Start the Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ✅ Prerequisites
+Ensure the Spotify Track Metadata API is running locally at http://localhost:8080.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### The backend must have Basic Auth enabled with the following credentials:
+Username: admin
+Password: password
+#### The backend should expose the following endpoints:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+POST /track/metadata?isrc=<your_isrc>
+GET /track/metadata?isrc=<your_isrc>
+GET /track/cover?isrc=<your_isrc>
 
-## Learn More
+### 🧭 Navigation
+The application features two primary screens accessible via the top navigation menu:
 
-To learn more about Next.js, take a look at the following resources:
+Create Track: Calls the POST /track/metadata?isrc=... endpoint.
+Search Track: Calls the GET /track/metadata?isrc=... endpoint and displays the track's cover art.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 👨‍💻 Author
+Made with ❤️ by Axel Fernandez

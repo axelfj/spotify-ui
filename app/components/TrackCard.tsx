@@ -6,7 +6,7 @@ export default function TrackCard({ track }: { track: any }) {
   return (
     <Card sx={{ mt: 4 }}>
       <CardContent>
-        <Typography variant="h6">{track.trackName}</Typography>
+        <Typography variant="h6">{track.name}</Typography>
         <Typography>Artist: {track.artistName}</Typography>
         <Typography>Album: {track.albumName}</Typography>
         <Typography>Explicit: {track.explicit ? 'Yes' : 'No'}</Typography>

@@ -1,6 +1,6 @@
 'use client'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Container, Typography, Button, AppBar, Toolbar } from '@mui/material';
+import { Container, Button, AppBar, Toolbar } from '@mui/material';
 import CreateTrackPage from './components/CreateTrackPage';
 import SearchTrackPage from './components/SearchTrackPage';
 
@@ -19,9 +19,6 @@ function App() {
       </AppBar>
 
       <Container maxWidth="md" sx={{ paddingTop: 4 }}>
-        <Typography variant="h4" gutterBottom>
-          ISRC Track Explorer
-        </Typography>
         <Routes>
           <Route path="/" element={<CreateTrackPage />} />
           <Route path="/search" element={<SearchTrackPage />} />

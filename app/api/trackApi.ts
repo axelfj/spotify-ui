@@ -1,11 +1,9 @@
 import axios from 'axios';
+import { API_CONFIG } from './config';
 
-const BASE_URL = 'http://localhost:8080/track';
+const { BASE_URL, AUTH } = API_CONFIG;
 
-// Basic Auth credentials
-const username = 'admin';
-const password = 'password';
-const authHeader = 'Basic ' + btoa(`${username}:${password}`);
+const authHeader = 'Basic ' + btoa(`${AUTH.username}:${AUTH.password}`);
 
 export const createTrack = (isrc: string) => {
   return axios.post(
