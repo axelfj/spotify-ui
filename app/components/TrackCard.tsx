@@ -1,8 +1,10 @@
 import { Card, CardContent, Typography, Box } from '@mui/material';
 import { getCoverUrl } from '../api/trackApi';
 import { formatSeconds } from '../utils/time';
+import { Track } from '../models/Track';
 
-export default function TrackCard({ track }: { track: any }) {
+const TrackCard = ({ track }: { track: Track }) => {
+  if (!track || !track.isrc) return null;
   return (
     <Card sx={{ mt: 4 }}>
       <CardContent>
@@ -22,3 +24,5 @@ export default function TrackCard({ track }: { track: any }) {
     </Card>
   );
 }
+
+export default TrackCard;

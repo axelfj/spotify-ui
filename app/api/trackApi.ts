@@ -1,9 +1,5 @@
 import axios from 'axios';
-import { API_CONFIG } from './config';
-
-const { BASE_URL, AUTH } = API_CONFIG;
-
-const authHeader = 'Basic ' + btoa(`${AUTH.username}:${AUTH.password}`);
+import { BASE_URL, AUTH_HEADER } from './config';
 
 export const createTrack = (isrc: string) => {
   return axios.post(
@@ -11,7 +7,7 @@ export const createTrack = (isrc: string) => {
     {},
     {
       headers: {
-        Authorization: authHeader,
+        Authorization: AUTH_HEADER,
       },
     }
   );
@@ -20,7 +16,7 @@ export const createTrack = (isrc: string) => {
 export const getTrackMetadata = (isrc: string) => {
   return axios.get(`${BASE_URL}/metadata?isrc=${isrc}`, {
     headers: {
-      Authorization: authHeader,
+      Authorization: AUTH_HEADER,
     },
   });
 };

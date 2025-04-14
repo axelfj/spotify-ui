@@ -1,11 +1,12 @@
 import { create } from 'zustand';
+import { NULL_TRACK, Track } from '../models/Track';
 
 interface TrackState {
-  lastSearchedTrack: any | null;
-  setLastSearchedTrack: (track: any) => void;
+  lastSearchedTrack: Track;
+  setLastSearchedTrack: (track: Track) => void;
 }
 
 export const useTrackStore = create<TrackState>((set) => ({
-  lastSearchedTrack: null,
+  lastSearchedTrack: NULL_TRACK,
   setLastSearchedTrack: (track) => set({ lastSearchedTrack: track }),
 }));

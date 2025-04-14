@@ -1,5 +1,7 @@
 import { Alert } from '@mui/material';
 
-export default function ErrorAlert({ message }: { message: string }) {
-  return <Alert severity="error">{message}</Alert>;
+const ErrorAlert = ({ message }: { message: string }) => {
+  return <Alert severity="error" sx={{ mt: 2 }}>{message}</Alert>;
 }
+
+export default ErrorAlert;

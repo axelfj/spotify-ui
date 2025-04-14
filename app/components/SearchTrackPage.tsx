@@ -1,24 +1,30 @@
 'use client'
+
 import { useState } from 'react';
 import { getTrackMetadata } from '../api/trackApi';
 import TrackCard from '../components/TrackCard';
 import ErrorAlert from '../components/ErrorAlert';
 import { TextField, Button, Container } from '@mui/material';
+import { useTrackStore } from '../store/trackStore';
+import { NULL_TRACK } from '../models/Track';
+import { AxiosError } from 'axios';
 
-export default function SearchTrackPage() {
+const SearchTrackPage = () => {
+
   const [isrc, setIsrc] = useState('');
-  const [track, setTrack] = useState<any | null>(null);
   const [error, setError] = useState('');
+  const { lastSearchedTrack, setLastSearchedTrack } = useTrackStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setTrack(null);
+    setLastSearchedTrack(NULL_TRACK);
     try {
       const { data } = await getTrackMetadata(isrc);
-      setTrack(data);
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Something went wrong');
+      setLastSearchedTrack(data);
+    } catch (err) {
+      const axiosError = err as AxiosError<{ message?: string }>;
+      setError(axiosError.response?.data?.message || 'Something went wrong');
     }
   };
 
@@ -37,7 +43,9 @@ export default function SearchTrackPage() {
         </Button>
       </form>
       {error && <ErrorAlert message={error} />}
-      {track && <TrackCard track={track} />}
+      {lastSearchedTrack && <TrackCard track={lastSearchedTrack} />}
     </Container>
   );
 }
+
+export default SearchTrackPage;
